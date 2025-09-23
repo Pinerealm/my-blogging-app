@@ -190,7 +190,7 @@ In an era of information overload, we're creating a platform that prioritizes qu
 ### Week 1: Foundation & Core Backend
 **Goal**: Establish core infrastructure, database, and essential backend services.
 - [x] Initialize Next.js (JavaScript) and FastAPI (Python) projects.
-- [ ] Set up PostgreSQL database with SQLAlchemy models and Alembic for migrations.
+- [x] Set up PostgreSQL database with SQLAlchemy models and Alembic for migrations.
 - [ ] Implement user authentication with FastAPI-Users (registration, login, JWT).
 - [ ] Build core API endpoints for CRUD operations on users and posts.
 - [ ] Configure initial CI/CD pipeline with GitHub Actions.
