@@ -52,3 +52,14 @@ export const profileSchema = z.object({
     ),
   email: z.string().email("Please enter a valid email address"),
 });
+
+export const postSchema = z.object({
+  title: z
+    .string()
+    .min(1, "Title is required")
+    .max(200, "Title must be less than 200 characters"),
+  content: z
+    .string()
+    .min(1, "Content is required")
+    .min(10, "Content must be at least 10 characters"),
+});
