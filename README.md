@@ -191,16 +191,16 @@ In an era of information overload, we're creating a platform that prioritizes qu
 **Goal**: Establish core infrastructure, database, and essential backend services.
 - [x] Initialize Next.js (JavaScript) and FastAPI (Python) projects.
 - [x] Set up PostgreSQL database with SQLAlchemy models and Alembic for migrations.
-- [ ] Implement user authentication with FastAPI-Users (registration, login, JWT).
-- [ ] Build core API endpoints for CRUD operations on users and posts.
+- [x] Implement user authentication with FastAPI-Users (registration, login, JWT).
+- [x] Build core API endpoints for CRUD operations on users and posts.
 - [ ] Configure initial CI/CD pipeline with GitHub Actions.
 
 ### Week 2: Core Frontend & Content Management
 **Goal**: Build the primary user interface for content creation and consumption.
-- [ ] Develop responsive layout, design system, and basic UI components.
-- [ ] Implement frontend for user authentication (login, registration pages).
-- [ ] Create the post creation and editing interface with a rich text editor (Tiptap).
-- [ ] Build post listing and detail view pages.
+- [x] Develop responsive layout, design system, and basic UI components.
+- [x] Implement frontend for user authentication (login, registration pages).
+- [x] Create the post creation and editing interface with a rich text editor (Tiptap).
+- [x] Build post listing and detail view pages.
 - [ ] Implement draft, publish, and image upload functionality.
 
 ### Week 3: Community & Content Discovery
