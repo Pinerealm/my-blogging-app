@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.auth import router as auth_router
 from app.api.posts import router as posts_router
+from app.api.users import router as users_router
 
 app = FastAPI(
     title="Modern Blogging Platform API",
@@ -22,6 +23,7 @@ app.add_middleware(
 # Include routers
 app.include_router(auth_router, prefix="/api")
 app.include_router(posts_router, prefix="/api/posts", tags=["posts"])
+app.include_router(users_router, prefix="/api/users", tags=["users"])
 
 
 @app.get("/")
