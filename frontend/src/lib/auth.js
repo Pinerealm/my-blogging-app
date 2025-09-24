@@ -70,7 +70,27 @@ export const authAPI = {
 
   // Update user profile
   updateProfile: async (userData) => {
-    const response = await api.patch("/users/me", userData);
+    const response = await api.put("/users/me", userData);
+    return response.data;
+  },
+
+  // Get public user profile by username
+  getUserByUsername: async (username) => {
+    const response = await api.get(`/users/${username}`);
+    return response.data;
+  },
+
+  // Get user's posts
+  getUserPosts: async (username, skip = 0, limit = 10) => {
+    const response = await api.get(
+      `/users/${username}/posts?skip=${skip}&limit=${limit}`
+    );
+    return response.data;
+  },
+
+  // Get user statistics
+  getUserStats: async (username) => {
+    const response = await api.get(`/users/${username}/stats`);
     return response.data;
   },
 };

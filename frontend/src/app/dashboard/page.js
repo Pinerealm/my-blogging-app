@@ -4,7 +4,7 @@ import ProtectedRoute from "../../components/ProtectedRoute";
 import { useAuthStore } from "../../store/auth";
 import { Button } from "../../components/ui/Button";
 import Link from "next/link";
-import { PenSquare, FileText, Users, TrendingUp } from "lucide-react";
+import { PenSquare, FileText, Users, TrendingUp, Settings } from "lucide-react";
 
 function DashboardContent() {
   const { user } = useAuthStore();
@@ -52,17 +52,19 @@ function DashboardContent() {
           </div>
         </Link>
 
-        <div className="bg-white p-6 rounded-lg shadow border">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Users className="h-8 w-8 text-purple-600" />
-            </div>
-            <div className="ml-4">
-              <h3 className="text-lg font-medium text-gray-900">Followers</h3>
-              <p className="text-sm text-gray-500">Coming soon</p>
+        <Link href="/profile">
+          <div className="bg-white p-6 rounded-lg shadow border hover:shadow-md transition-shadow cursor-pointer">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <Settings className="h-8 w-8 text-purple-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-lg font-medium text-gray-900">Profile</h3>
+                <p className="text-sm text-gray-500">Edit your profile</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         <div className="bg-white p-6 rounded-lg shadow border">
           <div className="flex items-center">
