@@ -1,6 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.core.users import current_active_user
 from app.db.session import SessionLocal
@@ -23,14 +23,21 @@ def get_db():
 @router.get("/", response_model=List[PostRead])
 def get_posts(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     """Get all posts with pagination."""
-    posts = db.query(Post).offset(skip).limit(limit).all()
+    posts = (
+        db.query(Post).options(joinedload(Post.author)).offset(skip).limit(limit).all()
+    )
     return posts
 
 
 @router.get("/{post_id}", response_model=PostRead)
 def get_post(post_id: int, db: Session = Depends(get_db)):
     """Get a specific post by ID."""
-    post = db.query(Post).filter(Post.id == post_id).first()
+    post = (
+        db.query(Post)
+        .options(joinedload(Post.author))
+        .filter(Post.id == post_id)
+        .first()
+    )
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
     return post
@@ -108,6 +115,11 @@ def get_user_posts(
 ):
     """Get all posts by a specific user."""
     posts = (
-        db.query(Post).filter(Post.author_id == user_id).offset(skip).limit(limit).all()
+        db.query(Post)
+        .options(joinedload(Post.author))
+        .filter(Post.author_id == user_id)
+        .offset(skip)
+        .limit(limit)
+        .all()
     )
     return posts

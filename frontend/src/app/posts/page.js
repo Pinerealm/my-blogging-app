@@ -92,7 +92,11 @@ export default function PostsPage() {
                   <div className="flex items-center text-sm text-gray-500 space-x-4">
                     <div className="flex items-center">
                       <User className="h-4 w-4 mr-1" />
-                      <span>Author ID: {post.author_id}</span>
+                      <span>
+                        {post.author
+                          ? post.author.username
+                          : `Author ID: ${post.author_id}`}
+                      </span>
                     </div>
                     {post.created_at && (
                       <div className="flex items-center">

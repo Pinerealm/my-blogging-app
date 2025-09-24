@@ -17,10 +17,20 @@ class PostUpdate(BaseModel):
     content: Optional[str] = None
 
 
+class AuthorRead(BaseModel):
+    id: int
+    username: str
+    email: str
+
+    class Config:
+        from_attributes = True
+
+
 class PostRead(PostBase):
     id: int
     author_id: int
     created_at: datetime
+    author: Optional[AuthorRead] = None
 
     class Config:
         from_attributes = True
